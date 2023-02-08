@@ -1,5 +1,4 @@
 import * as cdk from '@aws-cdk/core';
-// import * as sqs from '@aws-cdk/aws-sqs';
 import s3assets = require('@aws-cdk/aws-s3-assets');
 import elasticbeanstalk = require('@aws-cdk/aws-elasticbeanstalk');
 import iam = require('@aws-cdk/aws-iam');
@@ -13,8 +12,6 @@ export class CdkEbInfraStack extends cdk.Stack {
     const webAppZipArchive = new s3assets.Asset(this, 'WebAppZip', {
       path: `${__dirname}/../app.zip`,
     });
-
-    // i'm so lost rn: https://aws.amazon.com/getting-started/guides/deploy-webapp-elb/module-two/
 
     // Create a ElasticBeanStalk app.
     const appName = 'MyWebApp';
@@ -83,10 +80,5 @@ export class CdkEbInfraStack extends cdk.Stack {
       optionSettings: optionSettingProperties,
       versionLabel: appVersionProps.ref,
     });
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkEbInfraQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
   }
 }
