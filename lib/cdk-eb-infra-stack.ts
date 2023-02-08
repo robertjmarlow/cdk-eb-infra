@@ -1,10 +1,11 @@
-import * as cdk from '@aws-cdk/core';
-import s3assets = require('@aws-cdk/aws-s3-assets');
-import elasticbeanstalk = require('@aws-cdk/aws-elasticbeanstalk');
-import iam = require('@aws-cdk/aws-iam');
+import { Construct } from 'constructs';
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { aws_iam as iam } from 'aws-cdk-lib';
+import { aws_s3_assets as s3assets } from 'aws-cdk-lib';
+import { aws_elasticbeanstalk as elasticbeanstalk } from 'aws-cdk-lib';
 
-export class CdkEbInfraStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+export class CdkEbInfraStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     // The code that defines your stack goes here
